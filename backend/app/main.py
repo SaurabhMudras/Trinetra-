@@ -1,3 +1,4 @@
+from app.api.v1.endpoints import admin
 from app.api.v1.endpoints import auth
 from contextlib import asynccontextmanager
 
@@ -55,4 +56,9 @@ app.include_router(
     auth.router,
     prefix="/api/v1/auth",
     tags=["Authentication"]
+)
+app.include_router(
+    admin.router,
+    prefix="/api/v1/admin",
+    tags=["Admin"],
 )
