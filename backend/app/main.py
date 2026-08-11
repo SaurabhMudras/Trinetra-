@@ -1,3 +1,5 @@
+from app.api.v1.endpoints import incident
+from app.api.v1.endpoints import alert
 from app.api.v1.endpoints import admin
 from app.api.v1.endpoints import auth
 from contextlib import asynccontextmanager
@@ -61,4 +63,14 @@ app.include_router(
     admin.router,
     prefix="/api/v1/admin",
     tags=["Admin"],
+)
+app.include_router(
+    incident.router,
+    prefix="/api/v1/incidents",
+    tags=["Incidents"],
+)
+app.include_router(
+    alert.router,
+    prefix="/api/v1/alerts",
+    tags=["Alerts"],
 )

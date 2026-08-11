@@ -1,7 +1,7 @@
 from .user import User
-from .alert import Alert
+from .incident import Incident
 
 __all__ = [
     "User",
-    "Alert",
+    "Incident",
 ]

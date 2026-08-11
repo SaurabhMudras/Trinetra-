@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+
 from app.models.user import User
 from app.core.security import hash_password
 
@@ -20,6 +21,12 @@ def create_user(db: Session, username, email, password):
 def get_user_by_email(db: Session, email):
     return db.query(User).filter(
         User.email == email
+    ).first()
+
+
+def get_user_by_username(db: Session, username):
+    return db.query(User).filter(
+        User.username == username
     ).first()
 
 
@@ -53,10 +60,6 @@ def update_user_status(db: Session, user, active):
     db.refresh(user)
     return user
 
-
-# -------------------------
-# ADD THIS BELOW
-# -------------------------
 
 def get_user_stats(db: Session):
 
